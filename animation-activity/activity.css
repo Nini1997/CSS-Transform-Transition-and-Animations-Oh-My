@@ -1,43 +1,80 @@
-.hamburger:hover > div:nth-child(1){
+.hamburger:hover > div:nth-child(1) {
   background-color: ghostwhite;
-  animation-name: top;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  animation: topRotate 1s forwards;
 }
 
-.hamburger:hover > div:nth-child(2){
-  animation-name: middle;
-  animation-duration: .1s;
-  animation-fill-mode: forwards;
+.hamburger:hover > div:nth-child(2) {
+  animation: middleDisappear 0.5s forwards;
 }
 
-.hamburger:hover > div:nth-child(3){
+.hamburger:hover > div:nth-child(3) {
   background-color: ghostwhite;
-  animation-name: bottom;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  animation: bottomRotate 1s forwards;
+}
+body  {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: gainsboro;
 }
 
-nav {
-  opacity: 0;
-  transition-duration: 1s;
+.container  {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hamburger:hover ~ nav {
-  opacity: 1;
+.hamburger {
+  width: 100px;
+  height: 100px;
+  background: mediumvioletred;
+  color: ghostwhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-@keyframes top {
-  from {}
-  to {}
+.hamburger div {
+  background-color: rebeccapurple;
+  height: 10px;
+  width: 70%;
+  margin: auto;
 }
 
-@keyframes middle {
-  from {}
-  to {}
+li {
+  list-style-type: none;
+  margin-bottom: 1em;
 }
 
-@keyframes bottom {
-  from {}
-  to {}
+a {
+  text-decoration: none;
+  color: rebeccapurple;
+  text-shadow: 1px 1px 2px darkgrey;
+}
+a:hover {
+  color: ghostwhite;
+}
+
+@keyframes middleDisappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes bottomRotate {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+  to {
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+@keyframes topRotate {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+  to {
+    transform: translateY(50%) rotate(45deg);
+  }
 }
